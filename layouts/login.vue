@@ -1,8 +1,6 @@
 <template>
-  <div class="container">
-    <Header />
+  <div class="login">
     <Nuxt />
-    <Tabbar />
   </div>
 </template>
 
@@ -13,3 +11,5 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped></style>

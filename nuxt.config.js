@@ -4,12 +4,12 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'universal',
+  // mode: 'universal',
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'static',
+  // target: 'static',
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -29,14 +29,16 @@ export default {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css'
+    'vant/lib/index.css',
+    '@/assets/reset.css'
   ],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/vant',
+    '@/plugins/axios'
   ],
   /*
   ** Auto import components
@@ -52,12 +54,26 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
   ],
+  axios: {
+    proxy: true
+  },
+  /*
+   ** proxy
+   */
+  proxy: {
+    "/api": "http://localhost:3000"
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    transpile: [/^element-ui/],
+    transpile: [/^vant/],
+  },
+  generate: {
+    devtools: true,
+    subFolder: false,
   }
 }
